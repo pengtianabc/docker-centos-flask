@@ -10,7 +10,7 @@ ENV HOME /root
 # WORKDIR /root/
 
 RUN yum install python3-pip mysql-devel python3-devel gcc python-imaging  -y --nogpgcheck 
-RUN pip3 install flask-sqlacodegen mysqlclient flask flask_sqlalchemy redis redis-py-cluster flask-marshmallow marshmallow-sqlalchemy Pillow IPy flask-script
+RUN pip3 install mysqlclient uwsgi
 RUN pip3 install virtualenv
 RUN virtualenv /venvpy3
 RUN (. /venvpy3/bin/activate && pip install -r /requirements.txt)
@@ -22,5 +22,5 @@ ENV LC_ALL     en_US.UTF-8
 
 EXPOSE 5000
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ['app']
+CMD ['bash', 'app']
 
