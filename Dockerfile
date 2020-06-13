@@ -22,5 +22,5 @@ ENV LC_ALL     en_US.UTF-8
 
 EXPOSE 5000
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ['bash', 'app']
+CMD ['app']
 
