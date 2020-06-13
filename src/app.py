@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import request
 from flask import jsonify
+from flask_script import Manager, Server
 import datetime
 
 import utils
@@ -28,7 +29,7 @@ def show_details() :
            "</html>"
 
 @app.route("/json")
-def send_json() :
+def send_json():
     global startTime
     return jsonify( {'StartTime' : startTime,
                      'Hostname': utils.gethostname(),
@@ -36,5 +37,8 @@ def send_json() :
                      'RemoteAddress':  request.remote_addr,
                      'Server Hit': str(hit.getServerHitCount())} )
 
+manager = Manager(app)
+manager.add_command("run", Server())
 if __name__ == "__main__":
-    app.run(debug = True, host = '0.0.0.0')
+    # app.run(debug = True, host = '0.0.0.0')
+	manager.run()

@@ -1,7 +1,6 @@
 #!/bin/sh
 if [ "$1" = 'app' ]; then
-    cd /src/
-    python3 app.py
+    (. /venvpy3/bin/activate && uwsgi  --ini /etc/uwsgi/uwsgi.ini --uid `whoami`)
 else
   exec "$@"
 fi
