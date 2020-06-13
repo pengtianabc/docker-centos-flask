@@ -8,7 +8,7 @@ ENV HOME /root
 # WORKDIR /root/
 
 RUN yum install python3-pip mysql-devel python3-devel gcc python-imaging  -y --nogpgcheck 
-RUN pip3 install flask-sqlacodegen mysqlclient flask flask_sqlalchemy redis redis-py-cluster flask-marshmallow marshmallow-sqlalchemy Pillow
+RUN pip3 install flask-sqlacodegen mysqlclient flask flask_sqlalchemy redis redis-py-cluster flask-marshmallow marshmallow-sqlalchemy Pillow IPy
 RUN chmod 755 docker-entrypoint.sh
 # # Ensure UTF-8 lang and locale
 ENV LANG       en_US.UTF-8
