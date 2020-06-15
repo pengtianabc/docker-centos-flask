@@ -13,7 +13,7 @@ RUN yum install python3-pip mysql-devel python3-devel gcc python-imaging  -y --n
 RUN pip3 install mysqlclient uwsgi
 RUN pip3 install virtualenv
 RUN virtualenv /venvpy3
-RUN (. /venvpy3/bin/activate && pip install -r /requirements.txt)
+RUN (. /venvpy3/bin/activate && pip install -r /requirements.txt && pip install gevent==1.4.0)
 
 RUN chmod 755 docker-entrypoint.sh
 # # Ensure UTF-8 lang and locale
