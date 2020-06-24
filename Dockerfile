@@ -9,6 +9,7 @@ COPY uwsgi /etc/uwsgi
 ENV HOME /root
 # WORKDIR /root/
 
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN yum install python3-pip mysql-devel python3-devel gcc python-imaging  -y --nogpgcheck 
 RUN pip3 install mysqlclient uwsgi
 RUN pip3 install virtualenv
